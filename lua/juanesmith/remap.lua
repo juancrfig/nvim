@@ -74,3 +74,28 @@ end)
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
+
+-- remap.lua
+-- Vertical split essentials for dual-file focus
+vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Focus left pane' })
+vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Focus right pane' })
+
+-- Smart vertical splitting (max 2 files)
+vim.keymap.set('n', '<leader>vv', function()
+  local win_count = #vim.api.nvim_tabpage_list_wins(0)
+  
+  if win_count >= 2 then
+    -- Close all splits except current before making new one
+    vim.cmd('only')
+    vim.cmd('vsplit')
+  else
+    vim.cmd('vsplit')
+  end
+end, { desc = 'Vertical split (enforce 2-pane max)' })
+
+-- Close split and maintain focus
+vim.keymap.set('n', '<leader>vc', '<C-w>c', { desc = 'Close current pane' })
+
+-- Arrow key alternative
+vim.keymap.set('n', '<C-Left>', '<C-w>h', { desc = 'Focus left pane' })
+vim.keymap.set('n', '<C-Right>', '<C-w>l', { desc = 'Focus right pane' })
