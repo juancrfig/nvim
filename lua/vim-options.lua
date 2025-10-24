@@ -17,3 +17,7 @@ vim.keymap.set('n', '<leader>c', ':nohlsearch<CR>')
 vim.keymap.set('n', '<leader>he', 'oif err != nil {<CR>}<Esc>Oreturn err')
 vim.keymap.set('n', '<leader>ff', ':!gofmt -w %<CR><CR>')
 vim.keymap.set('n', '<Space><Space>', ':Ex<CR>', { noremap = true, silent = true })
+
+
+vim.keymap.set('n', '<C-b>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>o', ':NvimTreeFocus<CR>', { noremap = true, silent = true })
