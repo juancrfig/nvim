@@ -58,3 +58,4 @@ set_hl("NvimTreeNormal", nil, "NONE")
 set_hl("NvimTreeNormalNC", nil, "NONE")
 set_hl("NvimTreeCursorLine", selection_color, "#FFC300")
 set_hl("NvimTreeEndOfBuffer", background, nil)
+

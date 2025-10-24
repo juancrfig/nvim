@@ -3,6 +3,8 @@ vim.g.mapleader = " "
 vim.o.relativenumber = true
 vim.o.number = true
 
+vim.o.cmdheight = 0
+
 vim.o.termguicolors = true
 vim.cmd "syntax on"
 
@@ -12,7 +14,6 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.autoindent = true
 
-vim.opt.showmode = true
 
 vim.opt.clipboard = "unnamedplus"
 
