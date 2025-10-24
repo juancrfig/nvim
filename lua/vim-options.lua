@@ -3,6 +3,9 @@ vim.g.mapleader = " "
 vim.o.relativenumber = true
 vim.o.number = true
 
+vim.o.termguicolors = true
+vim.cmd "syntax on"
+
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
@@ -19,5 +22,5 @@ vim.keymap.set('n', '<leader>ff', ':!gofmt -w %<CR><CR>')
 vim.keymap.set('n', '<Space><Space>', ':Ex<CR>', { noremap = true, silent = true })
 
 
-vim.keymap.set('n', '<C-b>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-b>', function() require('nvim-tree.api').tree.toggle() end, { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>o', ':NvimTreeFocus<CR>', { noremap = true, silent = true })

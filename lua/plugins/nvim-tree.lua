@@ -10,10 +10,6 @@ return {
     view = {
         width = 20,
     }
-    }
-    -- Make nvim-tree background transparent
-    vim.api.nvim_set_hl(0, "NvimTreeNormal", { bg = "NONE" })
-    vim.api.nvim_set_hl(0, "NvimTreeNormalNC", { bg = "NONE" })
-    vim.api.nvim_set_hl(0, "NvimTreeCursorLine", { bg = "#444444" })  -- selection
+}
   end,
 }
