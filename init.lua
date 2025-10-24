@@ -1,3 +1,4 @@
+-- File: init.lua
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -16,6 +17,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 require("vim-options")
 
+-- Load the colorscheme BEFORE lazy.nvim setup
+require("my_theme")
+
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
@@ -28,5 +32,3 @@ require("lazy").setup({
   -- automatically check for plugin updates
   checker = { enabled = true },
 })
-
-require("my_theme")
