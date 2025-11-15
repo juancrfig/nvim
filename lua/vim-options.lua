@@ -25,3 +25,10 @@ vim.keymap.set('n', '<Space><Space>', ':Ex<CR>', { noremap = true, silent = true
 
 vim.keymap.set('n', '<C-b>', function() require('nvim-tree.api').tree.toggle() end, { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>o', ':NvimTreeFocus<CR>', { noremap = true, silent = true })
+
+-- Vim Motions
+vim.keymap.set('n', 'de', 'd$', { noremap = true, silent = true })
+-- Move selected lines up and down in visual mode
+vim.keymap.set("x", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
+vim.keymap.set("x", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
+
