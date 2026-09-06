@@ -2,6 +2,18 @@
 
 DOTFILES="git@github.com:juancrfig/devcontainer"
 
+if ! command -v devpod >/dev/null; then 
+	echo "Installing DevPod..."
+	(curl -L -o devpod "https://github.com/loft-sh/devpod/releases/latest/download/devpod-linux-amd64" && sudo install -c -m 0755 devpod /usr/local/bin && rm -f devpod) > /tmp/setup.log 2>&1
+	devpod ide use none
+	devpod context set-options -o DOTFILES_URL=$DOTFILES
+	if [ $? -ne 0 ]; then
+		echo "Installation failed. Details: /tmp/setup.log"
+	fi
+fi
+
+
+
 if [ -z "$SSH_AUTH_SOCK" ]; then
 	eval "$(ssh-agent -s)" > /dev/null
 	ssh-add ~/.ssh/id_ed25519 2>/dev/null
