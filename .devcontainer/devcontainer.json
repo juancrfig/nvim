@@ -1,14 +1,10 @@
 {
-	"name": "Digital Workbench",
+	"name": "My Devcontainer",
 	"image": "mcr.microsoft.com/devcontainers/python:1-3.12-bullseye",
-	"features": {
-		"ghcr.io/devcontainers/features/github-cli:1": {}
-	},
 	"containerEnv": {
-		"GH_TOKEN": "${localEnv:GH_TOKEN}",
-   		 "GITHUB_TOKEN": "${localEnv:GH_TOKEN}"
+		"SSH_AUTH_SOCK": "/ssh-agent"
 	},
-	"remoteEnv": {
-		"MY_VARIABLE": "LOL"
-	}
+	"mounts": [
+		"source=${localEnv:SSH_AUTH_SOCK},target=/ssh-agent,type=bind"
+	]
 }

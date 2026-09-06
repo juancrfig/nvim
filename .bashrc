@@ -1,3 +1,8 @@
 #!/bin/bash
 
-export GH_TOKEN=$(gh auth token 2>/dev/null)
+DOTFILES="git@github.com:juancrfig/devcontainer"
+
+if [ -z "$SSH_AUTH_SOCK" ]; then
+	eval "$(ssh-agent -s)" > /dev/null
+	ssh-add ~/.ssh/id_ed25519 2>/dev/null
+fi
