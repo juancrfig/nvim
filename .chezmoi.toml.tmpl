@@ -1,0 +1,3 @@
+[data]
+    name = {{ promptString "What is your git name?" "Juanes Figueroa" | quote }}
+    email = {{ promptString "What is your git email?" (printf "%s@users.noreply.github.com" .chezmoi.username) | quote }}
