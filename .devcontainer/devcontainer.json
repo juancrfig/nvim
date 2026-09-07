@@ -6,6 +6,9 @@
 	"containerEnv": {
 		"SSH_AUTH_SOCK": "/ssh-agent"
 	},
+	"remoteEnv": {
+		"PATH": "/home/vscode/.local/share/mise/shims:${containerEnv:PATH}"
+	},
 	"mounts": [
 		"source=${localEnv:SSH_AUTH_SOCK},target=/ssh-agent,type=bind"
 	],
