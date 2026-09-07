@@ -1,3 +1,4 @@
 [tools]
-bat = "latest"
+neovim = "latest"
+starship = "latest"
 chezmoi = "latest"
