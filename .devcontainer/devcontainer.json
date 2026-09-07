@@ -8,5 +8,6 @@
 	},
 	"mounts": [
 		"source=${localEnv:SSH_AUTH_SOCK},target=/ssh-agent,type=bind"
-	]
+	],
+	"postCreateCommand": "scripts/setup"
 }
