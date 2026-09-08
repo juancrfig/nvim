@@ -1,3 +1,9 @@
 #!/bin/bash
 
+set -euo pipefail
+
+if ! command -v chezmoi >/dev/null; then
+    sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply git@github.com:juancrfig/devcontainer.git
+fi
+
 /usr/local/bin/mise trust mise.toml && /usr/local/bin/mise install
