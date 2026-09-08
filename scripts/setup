@@ -3,7 +3,12 @@
 set -euo pipefail
 
 if ! command -v chezmoi >/dev/null; then
-    sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply git@github.com:juancrfig/devcontainer.git
+    mkdir -p ~/.ssh
+    ssh-keyscan -H github.com >> ~/.ssh/known_hosts 2>/dev/null
+    sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply \
+        --no-tty \
+        --promptString 'What is your git name?=Juanes Figueroa,What is your git email?=juancrfig@gmail.com' \
+        git@github.com:juancrfig/devcontainer.git
 fi
 
 /usr/local/bin/mise trust mise.toml && /usr/local/bin/mise install
